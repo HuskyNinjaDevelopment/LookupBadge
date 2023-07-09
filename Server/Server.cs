@@ -27,8 +27,8 @@ namespace Server
         }
         private void LoadConfig()
         {
-            string test = API.LoadResourceFile(API.GetCurrentResourceName(), "config.json");
-            var config = JObject.Parse(test);
+            string rawData = API.LoadResourceFile(API.GetCurrentResourceName(), "config.json");
+            var config = JObject.Parse(rawData);
 
             connString = config["connectionString"].ToString();
         }
