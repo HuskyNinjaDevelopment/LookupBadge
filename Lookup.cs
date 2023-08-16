@@ -1,8 +1,10 @@
 ﻿using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using FivePD.API;
+using FivePD.API.Utils;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +13,13 @@ namespace LookupBadge
 {
     internal class Lookup: Plugin
     {
+        PlayerData _playerData;
+
         internal Lookup()
         {
             Init();
+
+            _playerData = Utilities.GetPlayerData();
         }
 
         private void Init()
@@ -46,10 +52,25 @@ namespace LookupBadge
                 TriggerServerEvent("LookUp:Badge", badge);
             }), false);
 
+            //Dispalys name and badge number
+            API.RegisterCommand("badge", new Action(() => 
+            {
+                TriggerEvent("chat:addMessage", new
+                {
+                    color = new[] { 255, 0, 0 },
+                    multiline = true,
+                    args = new[] { "Badge", $"{_playerData.DisplayName} {_playerData.Callsign}" }
+
+                });
+            }), false);
+
             TriggerEvent("chat:addSuggestion", "/lookup", "/lookup [NNNN or L-NNN] will return information on the officer with that callsign.");
+            TriggerEvent("chat:addSuggestion", "/badge", "/badge will display the players in game name and callsign in ICC");
 
             EventHandlers["LookUp:Success"] += new Action<string, string>(LookUpSuccess);
             EventHandlers["LookUp:Failure"] += new Action<string>(LookUpFailure);
+
+            API.RegisterKeyMapping("badge", "Show Name and Callsign", "KEYBOARD", "F11");
         }
 
         private void LookUpSuccess(string data, string badge)
