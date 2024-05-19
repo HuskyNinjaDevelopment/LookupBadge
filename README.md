@@ -7,8 +7,6 @@ A chat command that get the in game name associated with a badge number. All you
 3. Place the LookupBadge.net.dll in your fivepd/plugins folder
 
 # Usage
-chat command /lookup
 ![chat_command](https://github.com/HuskyNinjaDevelopment/LookupBadge/assets/123021459/edda5a21-5ec5-42da-8281-aac642ae9879)
 
-Results from a successful lookup
 ![command_result](https://github.com/HuskyNinjaDevelopment/LookupBadge/assets/123021459/7fbfc786-aad6-46bb-8edf-a27c01a99e0b)
