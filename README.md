@@ -2,10 +2,13 @@
 A chat command that get the in game name associated with a badge number. All you need to do is supply the badge number.
 
 # Installation
-1. Download both zip files in the Release.
-2. Extract Resource.zip to a folder called lookup
-3. Extract Plugin.zip to the fivepd/plugins folder
-4. Edit server.cfg to ensure the lookup resource extracted earlier.
+1. Downloadthe zip file in the Releases Tab.
+2. Extract the resource and place the lookup_badge folder in your server's resources folder.
+3. Place the LookupBadge.net.dll in your fivepd/plugins folder
 
-# Configuration
-In order to connect to your database to get player names the config.json must be edited. Add your servers connection string to the json file.
+# Usage
+chat command /lookup
+![chat_command](https://github.com/HuskyNinjaDevelopment/LookupBadge/assets/123021459/edda5a21-5ec5-42da-8281-aac642ae9879)
+
+Results from a successful lookup
+![command_result](https://github.com/HuskyNinjaDevelopment/LookupBadge/assets/123021459/7fbfc786-aad6-46bb-8edf-a27c01a99e0b)
